@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Membership Registration</title>
+    <style>
+        /* Importing Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333333;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #666666;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #ff7eb3;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 126, 179, 0.5);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-group div,
+        .radio-group div {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group label,
+        .radio-group label {
+            margin-left: 8px;
+            color: #666666;
+        }
+
+        .rules {
+            font-size: 0.9rem;
+            color: #555555;
+            background: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(90deg, #ff758c, #ff7eb3);
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #ff7eb3, #ff758c);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Club Membership Form</h1>
+            <p>Join our club and be a part of something amazing!</p>
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="membership-type">Membership Type</label>
+                <select id="membership-type" name="membership-type" required>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="ultimate">Ultimate</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Where did you hear about us?</label>
+                <div class="checkbox-group">
+                    <div>
+                        <input type="checkbox" id="friend" name="source" value="Friend">
+                        <label for="friend">A Friend or Colleague</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="google" name="source" value="Google">
+                        <label for="google">Google</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="blog" name="source" value="Blog">
+                        <label for="blog">Blog Post</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Preferred way to contact</label>
+                <div class="radio-group">
+                    <div>
+                        <input type="radio" id="phone-contact" name="contact" value="Phone" required>
+                        <label for="phone-contact">Phone</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="email-contact" name="contact" value="Email" required>
+                        <label for="email-contact">Email</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Comments or Questions</label>
+                <textarea name="comments" rows="3" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="rules">
+                <p><strong>Rules:</strong></p>
+                <p>1. Membership is open to individuals aged 18 and above.</p>
+                <p>2. Any attempt at fraudulent activity will result in disqualification.</p>
+                <label>
+                    <input type="checkbox" id="rules" name="rules" required>
+                    I accept the terms and rules.
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+        <div class="footer">
+            <p>We’re excited to have you on board!</p>
+        </div>
+    </div>
+</body>
+</html>
